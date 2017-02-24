@@ -1,0 +1,1 @@
+$Type = "{{Type}}"$logfile = c:\Install.logwrite "Installing $Type..." | out-file $logfile -Appendswitch ($Type) {    IIS {$Feature = "Web-Server"}    DHCP {$Feature = "DHCP"}    WSUS {$Feature = "UpdateServices"}    Default{return}}Add-WindowsFeature $Feature -restart | out-file $logfile -Appen
