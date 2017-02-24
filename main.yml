@@ -2,4 +2,6 @@
 - hosts: "{{Server_Name}}"
   tasks:
    - name: 
-     ping:{{Server_Name}}
+     ping: "{{Server_Name}}"
+   - name: disable selinux
+     command: ping "{{Server_Name}}" > c:\temp.txt
