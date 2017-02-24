@@ -1,5 +1,5 @@
 ---
 - hosts: "{{Server_Name}}"
-  tasks:    
-    - name: test connection      
-      ping:
+  tasks:
+   - name: 
+     ping:{{Server_Name}}
