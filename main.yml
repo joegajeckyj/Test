@@ -3,5 +3,5 @@
   tasks:
    - name: 
      ping: "{{Server_Name}}"
-   - name: disable selinux
+   - name: Ping and output to text
      command: ping "{{Server_Name}}" > c:\temp.txt
