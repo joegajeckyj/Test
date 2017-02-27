@@ -1,6 +1,6 @@
 ---
 - hosts: "{{Server_Name}}"
-  ansible_user: Administrator
+  remote_user: Administrator
   tasks:
    - name: Ping
      ping: "{{Server_Name}}"
