@@ -1,5 +1,5 @@
 ---
-- hosts: "{{Server_Name}}"
+- hosts: localhost
   tasks:
    - name: Ping
      ping: "{{Server_Name}}"
