@@ -1,7 +1,7 @@
 ---
-- hosts: "{{Server_Name}}"
+- hosts: "{{Server}}"
   tasks:
    - name: 
-     ping: "{{Server_Name}}"
+     ping: "{{Server}}"
    - name: Ping and output to text
-     command: ping "{{Server_Name}}" > c:\temp.txt
+     command: ping "{{Server}}" > c:\temp.txt
