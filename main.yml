@@ -3,5 +3,3 @@
   tasks:
    - name: Ping
      ping: "{{Server_Name}}"
-   - name: Ping and output to text
-  shell: ping "{{Server_Name}}" > c:\temp.txt
