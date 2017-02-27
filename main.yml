@@ -3,4 +3,4 @@
   remote_user: Administrator
   tasks:
    - name: Ping
-     ping: "{{Server_Name}}"
+     command: "{{Server_Name}}"
