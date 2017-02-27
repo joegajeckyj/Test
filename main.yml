@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- hosts: "{{Server_Name}}"
+  remote_user: administrator
   tasks:
    - name: Ping
      ping: "{{Server_Name}}"
