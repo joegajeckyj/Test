@@ -3,4 +3,4 @@
   remote_user: Administrator
   tasks:
    - name: Ping
-     command: "{{Server_Name}}"
+     command: write "{{Server_Name}}" | out-file "c:\test.txt"
