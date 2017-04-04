@@ -1,5 +1,5 @@
 ---
-- name: Run a powershell script
+- name: Run a powershell command
   hosts: windows
   tasks:
     - name: Test Powershell
