@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: GOC_Windows
   remote_user: Administrator
   tasks:
    - name: Ping
