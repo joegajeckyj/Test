@@ -2,6 +2,5 @@
 - hosts: GOC_Windows
   remote_user: Administrator
   tasks:
-   - win_reg_stat:
-      path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion
-     register: current_version
+   - command: cscript slmgr.vbs /dlv | findstr /i "kms machine name"
+  register: clc
