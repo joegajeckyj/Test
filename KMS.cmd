@@ -1,2 +1,3 @@
-Ping "{{server_name}}"
+hostname
+Ping "{{Server_Name}}"
 cscript slmgr.vbs /dlv | findstr /i kms
