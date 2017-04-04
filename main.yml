@@ -1,6 +1,6 @@
 ---
-- hosts: "{{Server_Name}}"
+- hosts: localhost
   remote_user: Administrator
   tasks:
    - name: Ping
-     command: write "{{Server_Name}}" | out-file "c:\test.txt"
+     Ping "{{Server_Name}}"
