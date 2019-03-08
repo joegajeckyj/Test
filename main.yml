@@ -1,8 +1,8 @@
 ---
-- name: Run Script
+- name: Run Command
   hosts: localhost
   tasks:
-    - script: ./pwshinstall.sh
+    - command: sudo yum install -y powershell
       register: powershell
     - debug: var=powershell
 
