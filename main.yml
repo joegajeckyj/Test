@@ -2,7 +2,7 @@
 - name: Run Command
   hosts: localhost
   tasks:
-    - command: ./installpowershell.py
+    - script: ./installpowershell.py
       register: powershell
     - debug: var=powershell
 
