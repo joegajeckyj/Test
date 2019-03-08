@@ -1,6 +1,8 @@
 ---
-- hosts: "{{server_name}}"
-  remote_user: Administrator
+- name: test raw module
+  hosts: localhost
   tasks:
-   - command: cscript slmgr.vbs /dlv | findstr /i "kms machine name"
-  register: clc
+    - command: $ which pwsh 
+      register: powershell
+    - debug: var=powershell
+
