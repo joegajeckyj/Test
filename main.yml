@@ -1,8 +1,8 @@
 ---
-- name: test raw module
+- name: Run Script
   hosts: localhost
   tasks:
-    - command: /pwshinstall.sh
+    - script: /pwshinstall.sh
       register: powershell
     - debug: var=powershell
 
