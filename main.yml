@@ -2,7 +2,7 @@
 - name: Run Command
   hosts: localhost
   tasks:
-    - script: ./installpowershell.py
+    - script: ./powershelldocker.sh
       register: powershell
     - debug: var=powershell
 
