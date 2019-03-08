@@ -2,7 +2,7 @@
 - name: test raw module
   hosts: localhost
   tasks:
-    - command: $ which pwsh 
+    - command: ls
       register: powershell
     - debug: var=powershell
 
