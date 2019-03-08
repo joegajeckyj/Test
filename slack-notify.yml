@@ -1,0 +1,9 @@
+---
+- name: Send notification message via Slack
+  hosts: localhost
+  tasks:
+    - slack:
+        token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
+        msg: 'System {{ ansible_hostname }} Report Completed'
+        icon_emoji: ":zap:"
+        username: '{{ ansible_hostname }}'
