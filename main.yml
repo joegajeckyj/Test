@@ -2,7 +2,7 @@
 - name: test raw module
   hosts: localhost
   tasks:
-    - command: \npwshinstall.sh
+    - command: \pwshinstall.sh
       register: powershell
     - debug: var=powershell
 
