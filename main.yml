@@ -2,7 +2,7 @@
 - name: Run Script
   hosts: localhost
   tasks:
-    - script: /pwshinstall.sh
+    - script: ./pwshinstall.sh
       register: powershell
     - debug: var=powershell
 
