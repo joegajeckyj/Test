@@ -1,3 +1,7 @@
+param(
+	[parameter(Mandatory=$true, Position=0)]$User
+	[parameter(Mandatory=$true, Position=1)]$pass
+)
 
 $server = $env:computername
 $SMTPServer = $server
@@ -15,9 +19,6 @@ $credential = Get-Credential -Message "Enter Zendesk login"
 $user = $credential.GetNetworkCredential().username
 $pass = $credential.GetNetworkCredential().password
 #>
-
-$User = "{{ username }}"
-$pass = "{{ password }}"
 
 $pair = "$($user):$($pass)"
 
