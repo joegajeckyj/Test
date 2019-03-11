@@ -1,8 +1,8 @@
 ---
-- name: Run Command
+- name: Run Docker Command
   hosts: localhost
   tasks:
-    - script: ./powershelldocker.sh
-      register: powershell
-    - debug: var=powershell
+    - command: docker run -it microsoft/powershell
+      register: docker
+    - debug: var=docker
 
