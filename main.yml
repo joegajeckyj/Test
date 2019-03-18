@@ -2,11 +2,13 @@
 - name: Send notification message via Slack
   hosts: localhost
   tasks:
-    - name: Run Python script to get ticket info
+    - name: Run Report script
       command: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }}
       register: zendeskReport
     - debug: var=zendeskReport.stdout_lines
-    - slack:
+
+    - name: Post to Slack
+      slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         msg: 'System {{ ansible_hostname }} Report Completed'
         icon_emoji: ":zap:"
