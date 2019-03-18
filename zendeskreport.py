@@ -7,18 +7,13 @@ bearerToken = 'basic ' + str(sys.argv[2])
 
 print('Customer Search:', urlSearchString)
 
-proxies = {
-  'http': 'http://10.12.172.14:8080',
-  'https': 'https://10.12.172.14:8080'
-}
-
 headers = {
   'Authorization': bearerToken
 }
 
 # Create the search URL
 url = 'https://t3n.zendesk.com/api/v2/search.json?query=' + urlSearchString + ' status<closed&sort_by=date&sort_order=desc'
-response = requests.get(url,headers=headers,proxies=proxies,verify=True)
+response = requests.get(url,headers=headers,verify=True)
 #print (response.status_code)
 # For successful API call, response code will be 200 (OK)
 if(response.ok):
