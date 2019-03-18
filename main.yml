@@ -10,6 +10,6 @@
     - name: Post to Slack
       slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
-        msg: {{ zendeskReport.stdout_lines }}
-        icon_emoji: ":zap:"
+        msg: '{{ zendeskReport.stdout_lines }}'
+        icon_emoji: ':zap:'
         username: 'ZendeskReporter'
