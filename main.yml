@@ -3,7 +3,9 @@
   hosts: localhost
   tasks:
     - name: Run Python script to get ticket info
-      script: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }} 
+      script: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }}
+      register: zendeskReport
+    - debug: var=zendeskReport
     - slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         msg: 'System {{ ansible_hostname }} Report Completed'
