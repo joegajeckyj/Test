@@ -1,5 +1,6 @@
 ---
 - name: Send notification message via Slack
+  hosts: localhost
   tasks:
     - name: Run Report python script
       script: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }}
