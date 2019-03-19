@@ -1,6 +1,7 @@
 ---
 - name: Send notification message via Slack
   hosts: localhost
+  gather_facts: no
   tasks:
     - name: Run Report python script
       script: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }}
