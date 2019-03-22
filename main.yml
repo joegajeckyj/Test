@@ -16,7 +16,7 @@
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         msg: Zendesk Report for "{{ customerSearch }}"
         icon_emoji: ":zap:"
-        username: "{{ ansible_hostname }}"
+        username: "{{ hostname }}"
     
     - name: Send tickets to Slack
       slack:
@@ -30,5 +30,5 @@
               - title: "{{ item.ticketSubject }}"
                 value: "Status: {{ item.ticketStatus }}"
         icon_emoji: ":zap:"
-        username: "{{ ansible_hostname }}"
+        username: "{{ hostname }}"
       with_items: response_file.tickets
