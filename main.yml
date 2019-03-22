@@ -4,6 +4,7 @@
   gather_facts: no
   vars:
     response_file: "{{ lookup('file','./response.json') | from_json }}"
+    slack_username: "Zendesk Reporter"
   
   tasks:
     - name: Run Report python script
@@ -16,7 +17,7 @@
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         msg: Zendesk Report for "{{ customerSearch }}"
         icon_emoji: ":zap:"
-        username: "{{ hostname }}"
+        username: slack_username
     
     - name: Send tickets to Slack
       slack:
@@ -30,5 +31,5 @@
               - title: "{{ item.ticketSubject }}"
                 value: "Status: {{ item.ticketStatus }}"
         icon_emoji: ":zap:"
-        username: "{{ hostname }}"
+        username: slack_username
       with_items: response_file.tickets
