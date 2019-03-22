@@ -2,15 +2,33 @@
 - name: Send notification message via Slack
   hosts: localhost
   gather_facts: no
+  vars:
+    response_file: "{{ lookup('file','./response.json') | from_json }}"
+  
   tasks:
     - name: Run Report python script
       script: ./ZendeskReport.py {{ customerSearch }} {{ bearerToken }}
       register: zendeskReport
     - debug: var=zendeskReport.stdout_lines
-
-    - name: Post to Slack
+    
+    - name: Send to Slack
       slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
-        msg: '{{ zendeskReport.stdout_lines }}'
-        icon_emoji: ':zap:'
-        username: 'ZendeskReporter'
+        msg: Zendesk Report for "{{ customerSearch }}"
+        icon_emoji: ":zap:"
+        username: "{{ ansible_hostname }}"
+    
+    - name: Send to Slack
+      slack:
+        token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
+        attachments:
+          - fallback: "Zendesk Search"
+            color: "#36a64f"
+            title: "{{ item.ticketID }}"
+            title_link: "https://t3n.zendesk.com/agent/tickets/{{ item.ticketID }}"
+            fields:
+              - title: "{{ item.ticketSubject }}"
+                value: "Status: {{ item.ticketStatus }}"
+        icon_emoji: ":zap:"
+        username: "{{ ansible_hostname }}"
+      with_items: response_file.tickets
