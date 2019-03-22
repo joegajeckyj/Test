@@ -11,14 +11,14 @@
       register: zendeskReport
     - debug: var=zendeskReport.stdout_lines
     
-    - name: Send to Slack
+    - name: Send main to slack
       slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         msg: Zendesk Report for "{{ customerSearch }}"
         icon_emoji: ":zap:"
         username: "{{ ansible_hostname }}"
     
-    - name: Send to Slack
+    - name: Send tickets to Slack
       slack:
         token: T31GN34R3/BGS668SEL/lFuQQDJvNp1xUAipdHh74sHI
         attachments:
