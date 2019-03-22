@@ -20,22 +20,34 @@ response = requests.get(url,headers=headers,verify=True)
 # For successful API call, response code will be 200 (OK)
 if(response.ok):
   # Loading the response data into a dict variable
-  casecount = response.json()['count']
-  print('Case Count:',(casecount))
-  #response.json()['results']  
+  #casecount = response.json()['count']
+  #print('Case Count:',(casecount))
+  #response.json()['results']
   # For each resault parse the ticket info
+
+  data = {}
+  data['tickets'] = []
+
   for result in list(response.json()['results']):
     ticketID = (result['id'])
     ticketSubject = (result['subject'])
     ticketStatus = (result['status'])
-    ticketURL = (result['url'])
-    print((ticketID),"-",(ticketSubject),'- Status: ' + str(ticketStatus))
-    hyperlink = "<a href='https://t3n.zendesk.com/agent/tickets/" + str(ticketID) + "'>ticketID</a>"
+
+    data['tickets'].append({
+      'ticketID': ticketID,
+      'ticketSubject': ticketSubject,
+      'ticketStatus': ticketStatus
+    })
+    #print("ticketID :",(ticketID),"ticketSubject :",(ticketSubject),"ticketStatus :",str(ticketStatus))
     pass
 else:
   # If response code is not ok (200), print the resulting http error code with description
   response.raise_for_status()
   pass
+
+with open('response.json', 'w') as outfile:
+    json.dump(data, outfile)
+
 
 
 
